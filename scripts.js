@@ -11,8 +11,8 @@ function start() {
      decisionB = prompt("Enter Decision B:","");
 
     //inserts user prompt inputs to decision A and B cells in table<th>.
-    document.getElementById('A').innerHTML = decisionA;
-    document.getElementById('B').innerHTML = decisionB;
+    document.getElementById('A').textContent = decisionA || '';
+    document.getElementById('B').textContent = decisionB || '';
 }
 
 //this is called when the slider is changed to update value on screen:
@@ -21,9 +21,9 @@ function sliderChange (inputObj) {
     var sliders = document.getElementsByClassName('sliders'); //select the ranges inputs
     //loop through slider objects(sliders class), and check if each slider in the index matches the passed in input object index number, and if it does, then change the span class index of the same number to the input value.
 
-    for (i = 0; i < sliders.length; i++) {
+    for (var i = 0; i < sliders.length; i++) {
         if(inputObj == sliders[i]) {
-            spans[i].innerHTML = inputObj.value;
+            spans[i].textContent = inputObj.value;
         }
     }
 }
@@ -118,9 +118,9 @@ console.log(resultA,resultB);
             var differenceSum = (difference / numAPos) * 100;
             var percentSum = Math.round(differenceSum);
 
-            document.getElementById('greaterChoice').innerHTML = decisionA;
-            document.getElementById('percentage').innerHTML = percentSum;
-            document.getElementById('lesserChoice').innerHTML = decisionB;
+            document.getElementById('greaterChoice').textContent = decisionA;
+            document.getElementById('percentage').textContent = percentSum;
+            document.getElementById('lesserChoice').textContent = decisionB;
             //IF RESULTS ARE POSITIVE NUMBERS:
         } else {
 
@@ -136,9 +136,9 @@ console.log(resultA,resultB);
 
         //round off the number to eliminate decimals
                 var percentSum = Math.round(difference);
-                document.getElementById('greaterChoice').innerHTML = decisionA;
-                document.getElementById('percentage').innerHTML = percentSum;
-                document.getElementById('lesserChoice').innerHTML = decisionB;
+                document.getElementById('greaterChoice').textContent = decisionA;
+                document.getElementById('percentage').textContent = percentSum;
+                document.getElementById('lesserChoice').textContent = decisionB;
           }
       //NOW CHECKING IF B > A:
      } else if (resultB > resultA){
@@ -154,9 +154,9 @@ console.log(resultA,resultB);
                 var differenceSum = (difference / numBPos) * 100;
                 var percentSum = Math.round(differenceSum);
 
-                document.getElementById('greaterChoice').innerHTML = decisionB;
-                document.getElementById('percentage').innerHTML = percentSum;
-                document.getElementById('lesserChoice').innerHTML = decisionA;
+                document.getElementById('greaterChoice').textContent = decisionB;
+                document.getElementById('percentage').textContent = percentSum;
+                document.getElementById('lesserChoice').textContent = decisionA;
 
          } //IF RESULTB IS A POSITIVE NUMBER
             else {
@@ -171,9 +171,9 @@ console.log(resultA,resultB);
 
 
                 var percentSum = Math.round(difference);
-                document.getElementById('greaterChoice').innerHTML = decisionB;
-                document.getElementById('percentage').innerHTML = percentSum;
-                document.getElementById('lesserChoice').innerHTML = decisionA;
+                document.getElementById('greaterChoice').textContent = decisionB;
+                document.getElementById('percentage').textContent = percentSum;
+                document.getElementById('lesserChoice').textContent = decisionA;
              }
 
        } else if (resultA == resultB){
