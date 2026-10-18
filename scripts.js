@@ -30,13 +30,14 @@ function sliderChange (inputObj) {
 
 //called when the reset button is hit to set slider values back to 5:
 function resetSliders() {
-     spans = document.getElementsByClassName('sliderStatus');
-    console.log(spans); //debugging
-  //loop through spans around the shown value in sliders, and change each span.innerhtml to 5:
-    //for (i = 0; i < spans.length; i++) {
-        //spans[i].innerHTML = '5';
+    var spans = document.getElementsByClassName('sliderStatus');
+    var sliders = document.getElementsByClassName('sliders');
+
+    for (var i = 0; i < sliders.length; i++) {
+        sliders[i].value = 5;
+        spans[i].textContent = '5';
     }
-//}
+}
 
 //CALCULATE FUNCTION: Called when User clicks calculate button to get result - this function gathers the values of the sliders that the user has adjusted, and then adds them up to get totals, calculates a total value for each decision, and then the percentage of difference between those totals is calculated to give the user the difference of one choice over the other.
 
